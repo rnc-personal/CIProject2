@@ -1,6 +1,10 @@
 :root {
-
-
+    --small-game-grid-col: 4;
+    --small-game-grid-row: 4;
+    --med-game-grid-col: 8;
+    --med-game-grid-row: 8;
+    --large-game-grid-col: 12;
+    --large-game-grid-row: 12;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
@@ -16,3 +20,31 @@ body {
     place-items: center;
 }
 
+#game-grid {
+    width: 800px;
+    height: 800px;
+    min-width: 350px;
+    min-height: 350px;
+    display: grid;
+
+}
+
+.small-grid {
+    grid-template-columns: repeat(auto-fit, calc(100% / var(--small-game-grid-col)));
+    grid-template-rows: repeat(auto-fit, calc(100% / var(--small-game-grid-row)));
+}
+
+.med-grid {
+    grid-template-columns: repeat(auto-fit, calc(100% / var(--med-game-grid-col)));
+    grid-template-rows: repeat(auto-fit, calc(100% / var(--med-game-grid-row)));
+}
+
+.large-grid {
+    grid-template-columns: repeat(auto-fit, calc(100% / var(--large-game-grid-col)));
+    grid-template-rows: repeat(auto-fit, calc(100% / var(--large-game-grid-row)));
+}
+.grid-item {
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+}
