@@ -29,16 +29,19 @@ body {
 
 }
 
+/* 16 total divs to create */
 .small-grid {
     grid-template-columns: repeat(auto-fit, calc(100% / var(--small-game-grid-col)));
     grid-template-rows: repeat(auto-fit, calc(100% / var(--small-game-grid-row)));
 }
 
+/* 64 total divs to create */
 .med-grid {
     grid-template-columns: repeat(auto-fit, calc(100% / var(--med-game-grid-col)));
     grid-template-rows: repeat(auto-fit, calc(100% / var(--med-game-grid-row)));
 }
 
+/* 144 total divs to create */
 .large-grid {
     grid-template-columns: repeat(auto-fit, calc(100% / var(--large-game-grid-col)));
     grid-template-rows: repeat(auto-fit, calc(100% / var(--large-game-grid-row)));
