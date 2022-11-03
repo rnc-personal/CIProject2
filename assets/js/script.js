@@ -6,12 +6,12 @@
 // this will be the value from the options selcted - general game settings
 const gameSize = 12
 const grid = document.getElementById('game-grid')
-const tiles = []
+const gemArray = []
 
 //The gems appearance can change but for referring to them, generic colors from the gems theme are used
 // define what the other themes gems relate to (e.g 'Santa' = 'Blue)
 
-const gems = [
+const gemColors = [
     'red',
     'green',
     'blue',
@@ -25,9 +25,9 @@ const gems = [
  */
 
 function createGrid() {
-    for(let i = 0; i < gameSize * gameSize; i++) {
+    for (let i = 0; i < gameSize * gameSize; i++) {
 
-        if (gameSize === 4 ) {
+        if (gameSize === 4) {
             grid.classList.add('small-grid')
         } else if (gameSize === 8) {
             grid.classList.add('med-grid')
@@ -35,15 +35,15 @@ function createGrid() {
             grid.classList.add('large-grid')
         }
 
-    const gridItem = document.createElement('div')
-    gridItem.classList.add('grid-item')
-    gridItem.setAttribute('draggable', true)
-    gridItem.setAttribute('id', i)
+        const gridItem = document.createElement('div')
+        gridItem.classList.add('grid-item')
+        gridItem.setAttribute('draggable', true)
+        gridItem.setAttribute('id', i)
 
-    let gemRandomise = Math.floor(Math.random() * gems.length)
-    gridItem.classList.add(gems[gemRandomise])
-    grid.appendChild(gridItem)
-    tiles.push(gridItem)
+        let gemRandomise = Math.floor(Math.random() * gemColors.length)
+        gridItem.classList.add(gemColors[gemRandomise])
+        grid.appendChild(gridItem)
+        gemArray.push(gridItem)
     }
 }
 
@@ -58,5 +58,37 @@ showHide.addEventListener('click', () => {
     createGrid()
 })
 
+//Moving Gems
 
+for (gem of gemArray) {
+    gem.addEventListener('dragstart', dragStart);
+    gem.addEventListener('dragover', dragOver)
+    gem.addEventListener('dragenter', dragEnter)
+    gem.addEventListener('dragleave', dragLeave)
+    gem.addEventListener('dragend', dragEnd)
+    gem.addEventListener('drop', dragDrop)
+}
 
+function dragStart() {
+    console.log((this.id, 'dragstart'))
+}
+
+function dragOver() {
+    console.log((this.id, 'dragover'))
+}
+
+function dragEnter() {
+    console.log((this.id, 'dragenter'))
+}
+
+function dragLeave() {
+    console.log((this.id, 'dragleave'))
+}
+
+function dragEnd() {
+    console.log((this.id, 'dragend'))
+}
+
+function dragDrop() {
+    console.log((this.id, 'drop'))
+}
