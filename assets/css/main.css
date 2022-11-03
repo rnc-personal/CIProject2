@@ -9,15 +9,30 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 
-* {
+/* * {
     background-color: rgba(27, 238, 245, 0.2);
-}
+} */
 
 body {
     font-family: 'Rubik', sans-serif;
     height: 100vh;
     display: grid;
     place-items: center;
+}
+
+#welcome {
+    position: absolute;
+    /* left: -100vw; */
+    background-color: red;
+    height: 100vh;
+    width: 100vw
+}
+
+.settings {
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    gap: 10%;
 }
 
 #game-grid {
@@ -46,6 +61,7 @@ body {
     grid-template-columns: repeat(auto-fit, calc(100% / var(--large-game-grid-col)));
     grid-template-rows: repeat(auto-fit, calc(100% / var(--large-game-grid-row)));
 }
+
 .grid-item {
     width: 100%;
     height: 100%;
