@@ -3,20 +3,8 @@
 // let sizeSetting = document.getElementById('settings-form').options
 // let gameSize = document.getElementById('settings-form').options.selectedIndex
 
-// function gameSelected(gameSize) {
-      
-
-//     if (gameSize === 0) {
-//         console.log('easy mode')
-//     } else if (gameSize === 1) {
-//         console.log('normal')
-//     } else if (gameSize === 2) {
-//         console.log('hard mode')
-//     }
-// }
-
 // this will be the value from the options selcted - general game settings
-const gameSize = 4
+const gameSize = 12
 const grid = document.getElementById('game-grid')
 const tiles = []
 
@@ -30,13 +18,23 @@ const gems = [
     'yellow'
 ]
 
+// need to attach this to the form submission, NOT the show/hide game button!
 /**
- * Creates the grid area and gems dynamically when starting the game, based on the settings chosen
+ * Creates the grid area and gems dynamically when starting the game, based on the settings chosen.
+ * Randomly selects a color from the gems available and applies an ID to the element
  */
 
-// need to attach this to the form submission, NOT the show/hide game button!
 function createGrid() {
     for(let i = 0; i < gameSize * gameSize; i++) {
+
+        if (gameSize === 4 ) {
+            grid.classList.add('small-grid')
+        } else if (gameSize === 8) {
+            grid.classList.add('med-grid')
+        } else if (gameSize === 12) {
+            grid.classList.add('large-grid')
+        }
+
     const gridItem = document.createElement('div')
     gridItem.classList.add('grid-item')
     gridItem.setAttribute('draggable', true)
@@ -49,7 +47,7 @@ function createGrid() {
     }
 }
 
-// tempory - REMOVE ME!
+// TEMP - NEEDS MOVING TO THE SUBMIT EVENT ON SETTINGS FORM
 const showHide = document.querySelector('.temp')
 const welcomeScreen = document.getElementById('welcome')
 
