@@ -16,11 +16,16 @@
 // }
 
 // this will be the value fro the options selcted
-const gameSize = 6
+const gameSize = 4
 
 const grid = document.getElementById('game-grid')
 const tiles = []
 
+/**
+ * Creates the grid area and gems dynamically when starting the game, based on the settings chosen
+ */
+
+// need to attach this to the form submission, NOT the show/hide game button!
 function createGrid() {
     for(let i = 0; i < gameSize * gameSize; i++) {
     const gridItem = document.createElement('div')
@@ -30,6 +35,7 @@ function createGrid() {
     }
 }
 
+// tempory - REMOVE ME!
 const showHide = document.querySelector('.temp')
 const welcomeScreen = document.getElementById('welcome')
 
