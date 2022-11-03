@@ -9,28 +9,39 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 
-/* * {
-    background-color: rgba(27, 238, 245, 0.2);
-} */
+* {
+    /* background-color: rgba(27, 238, 245, 0.2); */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 
 body {
     font-family: 'Rubik', sans-serif;
     height: 100vh;
     display: grid;
     place-items: center;
-    background: rgb(42,181,175);
-    background: radial-gradient(circle, rgba(42,181,175,1) 0%, rgba(0,139,139,1) 100%); 
+    background: rgb(42, 181, 175);
+    background: radial-gradient(circle, rgba(42, 181, 175, 1) 0%, rgba(0, 139, 139, 1) 100%);
 }
 
 #welcome {
     position: absolute;
-    /* left: -100vw; */
-    top: 0;
     background-color: rgb(104, 29, 29);
     height: 100vh;
     width: 100vw;
     display: grid;
     place-items: center;
+    transition: left 0.4s ease-out;
+}
+
+.open {
+    left: 0px;
+    top: 0px;
+}
+
+.hidden {
+    left: -100vw;
 }
 
 .settings {

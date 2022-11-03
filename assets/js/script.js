@@ -14,6 +14,15 @@
 //         console.log('hard mode')
 //     }
 // }
+const showHide = document.querySelector('.temp')
+const welcomeScreen = document.getElementById('welcome')
+
+showHide.addEventListener('click', () => {
+
+    welcomeScreen.classList.remove('open')
+    welcomeScreen.classList.add('hidden')
+})
+
 const gameSize = 8
 
 const grid = document.getElementById('game-grid')
