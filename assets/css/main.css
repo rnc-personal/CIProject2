@@ -48,6 +48,7 @@ form {
     display: grid;
     place-items: center;
     transition: left 0.4s ease-out;
+    
 }
 
 .open {
@@ -100,4 +101,19 @@ form {
     background-image: url(/assets/img/gems/ruby-red.gif);
     cursor: pointer;
     background-size: contain;
+}
+
+/* GEMS - note that the theme changes the actual image used */
+
+.red {
+    background-image: url(/assets/img/gems/ruby-red.gif);
+}
+.green {
+    background-image: url(/assets/img/gems/ruby-green.gif);
+}
+.blue {
+    background-image: url(/assets/img/gems/ruby-blue.gif);
+}
+.yellow {
+    background-image: url(/assets/img/gems/ruby-yellow.gif);
 }
