@@ -37,7 +37,7 @@ function createGrid() {
 
         const gridItem = document.createElement('div')
         gridItem.classList.add('grid-item')
-        gridItem.setAttribute('draggable', true)
+        // gridItem.setAttribute('draggable', true)
         gridItem.setAttribute('id', i)
 
         let gemRandomise = Math.floor(Math.random() * gemColors.length)
@@ -46,72 +46,65 @@ function createGrid() {
         gemArray.push(gridItem)
 
         //Add E.L for each gem so we know when the user is dragging a gem
-        
-        for (let gem of gemArray) {
-            gem.addEventListener('click', gemSelect)
-            gem.addEventListener('dragstart', dragStart);
-            gem.addEventListener('dragover', dragOver)
-            gem.addEventListener('dragenter', dragEnter)
-            gem.addEventListener('dragleave', dragLeave)
-            gem.addEventListener('dragend', dragEnd)
-            gem.addEventListener('drop', dragDrop)
-        }
+        //Write Up How difficult this was to implement diue to the E.L applying multiple times,
+        //only working on even numbered items in the array (due to firing multiple times)
 
-        //Tried alternative method but result is the same - click is registered multiple times depending on where it sits in the nodelist!
-        // gemArray.forEach(gem => gem.addEventListener('click', gemSelect))
-        // gemArray.forEach(gem => gem.addEventListener('dragstart', dragStart))
-        // gemArray.forEach(gem => gem.addEventListener('dragover', dragOver))
-        // gemArray.forEach(gem => gem.addEventListener('dragenter', dragEnter))
-        // gemArray.forEach(gem => gem.addEventListener('dragleave', dragLeave))
-        // gemArray.forEach(gem => gem.addEventListener('dragend', dragEnd))
-        // gemArray.forEach(gem => gem.addEventListener('drop', dragDrop))
+            //Had to define all of the gem items again here to get a Nodelist back (rather than an Array)
+            const allGems = document.querySelectorAll('.grid-item');
 
-        function gemSelect() {
-            if(this.classList.contains('selected')) {
-                this.classList.remove('selected')
-            } else {
-                this.classList.add('selected')
-                console.log('click')
+            allGems.forEach(gem => {
+                gem.addEventListener('click', function gemSelect(event) {
+                    //This is critial to ensure that all items can be selected,
+                    //otherwise the click event propagates for all the  remaining items in the nodeList!
+                    event.stopImmediatePropagation();
+
+                    //Highlight Selected Gem
+                    gem.classList.toggle('selected')
+                });
+            });
+
+
+            // let gem = document.querySelectorAll('grid-item')
+            // gem.addEventListener('click', () => {
+            //     gem.classList.toggle('selected')
+            //     console.log('click')
+            // })
+
+            function dragStart() {
+                console.log(this.id, 'dragstart')
             }
-         
-        }
 
-        function dragStart() {
-            console.log(this.id, 'dragstart')
-        }
+            function dragOver() {
+                console.log(this.id, 'dragover')
+            }
 
-        function dragOver() {
-            console.log(this.id, 'dragover')
-        }
+            function dragEnter() {
+                console.log(this.id, 'dragenter')
+            }
 
-        function dragEnter() {
-            console.log(this.id, 'dragenter')
-        }
+            function dragLeave() {
+                console.log(this.id, 'dragleave')
+            }
 
-        function dragLeave() {
-            console.log(this.id, 'dragleave')
-        }
+            function dragEnd() {
+                console.log(this.id, 'dragend')
+            }
 
-        function dragEnd() {
-            console.log(this.id, 'dragend')
-        }
-
-        function dragDrop() {
-            console.log(this.id, 'drop')
+            function dragDrop() {
+                console.log(this.id, 'drop')
+            }
         }
     }
-}
 
-// TEMP - NEEDS MOVING TO THE SUBMIT EVENT ON SETTINGS FORM
-const showHide = document.querySelector('.temp')
-const welcomeScreen = document.getElementById('welcome')
+    // TEMP - NEEDS MOVING TO THE SUBMIT EVENT ON SETTINGS FORM
+    const showHide = document.querySelector('.temp')
+    const welcomeScreen = document.getElementById('welcome')
 
-showHide.addEventListener('click', () => {
+    showHide.addEventListener('click', () => {
 
-    welcomeScreen.classList.remove('open')
-    welcomeScreen.classList.add('hidden')
-    createGrid()
-})
+        welcomeScreen.classList.remove('open')
+        welcomeScreen.classList.add('hidden')
+        createGrid()
+    })
 
-//Moving Gems
-
+    //Moving Gems
