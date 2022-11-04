@@ -17,3 +17,29 @@ gemArray.forEach(gem => gem.addEventListener('dragenter', dragEnter))
 gemArray.forEach(gem => gem.addEventListener('dragleave', dragLeave))
 gemArray.forEach(gem => gem.addEventListener('dragend', dragEnd))
 gemArray.forEach(gem => gem.addEventListener('drop', dragDrop))
+
+
+// drag events
+function dragStart() {
+    console.log(this.id, 'dragstart')
+}
+
+function dragOver() {
+    console.log(this.id, 'dragover')
+}
+
+function dragEnter() {
+    console.log(this.id, 'dragenter')
+}
+
+function dragLeave() {
+    console.log(this.id, 'dragleave')
+}
+
+function dragEnd() {
+    console.log(this.id, 'dragend')
+}
+
+function dragDrop() {
+    console.log(this.id, 'drop')
+}
