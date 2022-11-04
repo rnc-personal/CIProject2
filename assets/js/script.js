@@ -8,6 +8,8 @@ const gameSize = 4
 const grid = document.getElementById('game-grid')
 const gemArray = []
 
+let selectedPair = []
+let gemBlockCondition = 3
 //The gems appearance can change but for referring to them, generic colors from the gems theme are used
 // define what the other themes gems relate to (e.g 'Santa' = 'Blue)
 
@@ -63,6 +65,7 @@ function createGrid() {
 
                 //Highlight Selected Gem
                 this.classList.toggle('selected')
+                selectedPair.push(gem)
                 checkSelectedGems()
             });
         });
@@ -87,14 +90,14 @@ function checkSelectedGems() {
     let invalidGem = document.getElementsByClassName('selected')[2]
 
     //Create a pair for moving and checking for a match
-    let selectedPair = new Array('selectedGem1', 'selectedGem2', 'invalidGem')
-    let gemBlockCondition = 3
+    
 
-    if (gemBlockCondition >= selectedPair) {
+    if (selectedPair.length >= gemBlockCondition) {
         alert('Select Only 2 Gems!')
-        // invoke Gem Destroy Function here
+        invalidGem.classList.remove('selected')
+        selectedPair.pop(invalidGem)
     }
-    console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair))
+    console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair), gemBlockCondition, `Is block number the same as the array length: ${selectedPair.length >= gemBlockCondition}`)
 }
 
 //Moving Gems
