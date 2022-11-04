@@ -100,7 +100,27 @@ function checkSelectedGems() {
             console.log('invalid gem not found')
         }
     }
+
+
+
     console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair), gemBlockCondition, `Is block number the same as the array length: ${selectedPair.length >= gemBlockCondition}`)
 }
 
 //Moving Gems
+    
+
+
+// function gemMove(selectedPair, selectedGem1, selectedGem2) {
+//     // Step 1
+//     let temp = selectedPair[selectedGem1];
+  
+//     // Step 2
+//     selectedPair[selectedGem1] = selectedPair[selectedGem2];
+  
+//     // Step 3
+//     selectedPair[selectedGem2] = temp;
+//   }
+    
+//   gemMove(selectedPair, selectedGem1, selectedGem2);
+  
+//   console.log(selectedPair); 
