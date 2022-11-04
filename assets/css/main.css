@@ -117,3 +117,8 @@ form {
 .yellow {
     background-image: url(/assets/img/gems/ruby-yellow.gif);
 }
+
+.selected {
+    border: 4px dashed red;
+    border-radius: 15px;
+}

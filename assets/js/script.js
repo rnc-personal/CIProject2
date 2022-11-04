@@ -4,7 +4,7 @@
 // let gameSize = document.getElementById('settings-form').options.selectedIndex
 
 // this will be the value from the options selcted - general game settings
-const gameSize = 12
+const gameSize = 4
 const grid = document.getElementById('game-grid')
 const gemArray = []
 
@@ -46,13 +46,34 @@ function createGrid() {
         gemArray.push(gridItem)
 
         //Add E.L for each gem so we know when the user is dragging a gem
+        
         for (let gem of gemArray) {
+            gem.addEventListener('click', gemSelect)
             gem.addEventListener('dragstart', dragStart);
             gem.addEventListener('dragover', dragOver)
             gem.addEventListener('dragenter', dragEnter)
             gem.addEventListener('dragleave', dragLeave)
             gem.addEventListener('dragend', dragEnd)
             gem.addEventListener('drop', dragDrop)
+        }
+
+        //Tried alternative method but result is the same - click is registered multiple times depending on where it sits in the nodelist!
+        // gemArray.forEach(gem => gem.addEventListener('click', gemSelect))
+        // gemArray.forEach(gem => gem.addEventListener('dragstart', dragStart))
+        // gemArray.forEach(gem => gem.addEventListener('dragover', dragOver))
+        // gemArray.forEach(gem => gem.addEventListener('dragenter', dragEnter))
+        // gemArray.forEach(gem => gem.addEventListener('dragleave', dragLeave))
+        // gemArray.forEach(gem => gem.addEventListener('dragend', dragEnd))
+        // gemArray.forEach(gem => gem.addEventListener('drop', dragDrop))
+
+        function gemSelect() {
+            if(this.classList.contains('selected')) {
+                this.classList.remove('selected')
+            } else {
+                this.classList.add('selected')
+                console.log('click')
+            }
+         
         }
 
         function dragStart() {
