@@ -49,7 +49,7 @@ function createGrid() {
         gemArray.push(gridItem)
 
         //Add E.L for each gem so we know when the user is dragging a gem
-        //Write Up How difficult this was to implement diue to the E.L applying multiple times,
+        //Write Up How difficult this was to implement due to the E.L applying multiple times,
         //only working on even numbered items in the array (due to firing multiple times)
 
         //Had to define all of the gem items again here to get a Nodelist back (rather than an Array)
@@ -63,21 +63,7 @@ function createGrid() {
 
                 //Highlight Selected Gem
                 this.classList.toggle('selected')
-                //Check Which Gems are selected
-                let selectedGem1 = document.getElementsByClassName('selected')[0]
-                let selectedGem2 = document.getElementsByClassName('selected')[1]
-                let invalidGem = document.getElementsByClassName('selected')[2]
-
-                //Create a pair for moving and checking for a match
-                const selectedPair = [selectedGem1, selectedGem2]
-
-                
-
-                if (selectedPair.length === 2) {
-                    alert('Select Only 2 Gems!')
-                    // invoke Gem Destroy Function here
-                }
-                console.log(selectedGem1, selectedGem2)
+                checkSelectedGems()
             });
         });
     }
@@ -93,5 +79,22 @@ showHide.addEventListener('click', () => {
     welcomeScreen.classList.add('hidden')
     createGrid()
 })
+
+function checkSelectedGems() {
+    //Check Which Gems are selected
+    const selectedGem1 = document.getElementsByClassName('selected')[0]
+    const selectedGem2 = document.getElementsByClassName('selected')[1]
+    let invalidGem = document.getElementsByClassName('selected')[2]
+
+    //Create a pair for moving and checking for a match
+    let selectedPair = new Array('selectedGem1', 'selectedGem2', 'invalidGem')
+    let gemBlockCondition = 3
+
+    if (gemBlockCondition >= selectedPair) {
+        alert('Select Only 2 Gems!')
+        // invoke Gem Destroy Function here
+    }
+    console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair))
+}
 
 //Moving Gems
