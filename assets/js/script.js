@@ -92,7 +92,7 @@ function checkSelectedGems() {
     //Create a pair for moving and checking for a match
     
 
-    if (selectedPair.length >= gemBlockCondition) {
+    if (parseInt(selectedPair.length) >= parseInt(gemBlockCondition)) {
         alert('Select Only 2 Gems!')
         invalidGem.classList.remove('selected')
         selectedPair.pop(invalidGem)
