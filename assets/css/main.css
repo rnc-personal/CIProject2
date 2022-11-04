@@ -24,6 +24,8 @@ body {
     place-items: center;
     background: rgb(42, 181, 175);
     background: radial-gradient(circle, rgba(42, 181, 175, 1) 0%, rgba(0, 139, 139, 1) 100%);
+    /* background-image: url(/assets/img/bg/xmas-bg.png);
+    background-size: cover; */
 }
 
 button {
@@ -48,7 +50,6 @@ form {
     display: grid;
     place-items: center;
     transition: left 0.4s ease-out;
-    
 }
 
 .open {
@@ -57,7 +58,7 @@ form {
 }
 
 .hidden {
-    left: -100vw;
+    left: -300vw;
 }
 
 .settings {
@@ -73,7 +74,7 @@ form {
     min-width: 350px;
     min-height: 350px;
     display: grid;
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.8);
 }
 
 /* 16 total divs to create */
@@ -98,7 +99,6 @@ form {
     width: 100%;
     height: 100%;
     /* border: 1px solid white; */
-
     cursor: pointer;
     background-size: contain;
 }
@@ -106,16 +106,16 @@ form {
 /* GEMS - note that the theme changes the actual image used */
 
 .red {
-    background-image: url(/assets/img/gems/ruby-red.gif);
+    background-image: url(/assets/img/xmas/gem-santa.gif);
 }
 .green {
-    background-image: url(/assets/img/gems/ruby-green.gif);
+    background-image: url(/assets/img/xmas/gem-tree.gif);
 }
 .blue {
-    background-image: url(/assets/img/gems/ruby-blue.gif);
+    background-image: url(/assets/img/xmas/gem-snowman.gif);
 }
 .yellow {
-    background-image: url(/assets/img/gems/ruby-yellow.gif);
+    background-image: url(/assets/img/xmas/gem-box.gif);
 }
 
 .selected {

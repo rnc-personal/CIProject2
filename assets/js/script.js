@@ -90,17 +90,17 @@ function checkSelectedGems() {
     let invalidGem = document.getElementsByClassName('selected')[2]
 
     //Create a pair for moving and checking for a match
-
-    if (parseInt(selectedPair.length) >= parseInt(gemBlockCondition)) {
-        alert('Select Only 2 Gems!');
-        if (invalidGem) {
-            invalidGem.classList.remove('selected')
-            selectedPair.pop(invalidGem)
-        } else {
-            console.log('invalid gem not found')
-        }
-    }
-    // console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair), gemBlockCondition, `Is block number the same as the array length: ${selectedPair.length >= gemBlockCondition}`)
+    //THis needs some thought. If more than 2 items are in the array, remove the last one, take off the selected class and show a message
+    // if (parseInt(selectedPair.length) > parseInt(gemBlockCondition)) {
+    //     alert('Select Only 2 Gems!');
+    //     if (invalidGem) {
+    //         invalidGem.classList.remove('selected')
+    //         selectedPair.pop(invalidGem)
+    //     } else {
+    //         console.log('invalid gem not found')
+    //     }
+    // }
+    console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair), gemBlockCondition, `Is block number the same as the array length: ${selectedPair.length >= gemBlockCondition}`)
 }
 
 //Moving Gems
