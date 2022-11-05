@@ -1,4 +1,5 @@
-// Settings (TO DO)
+//////////////////////////////////////////////////////////
+// GAME SETTINGS AND GLOBAL VARAIBLES
 
 // let sizeSetting = document.getElementById('settings-form').options
 // let gameSize = document.getElementById('settings-form').options.selectedIndex
@@ -19,6 +20,8 @@ const gemColors = [
     'blue',
     'yellow'
 ]
+
+//////////////////////////////////////////////////////////
 
 // need to attach this to the form submission, NOT the show/hide game button!
 /**
@@ -72,6 +75,8 @@ function createGrid() {
     }
 }
 
+//WELCOME SCREEN
+//////////////////////////////////////////////////////////
 // TEMP - NEEDS MOVING TO THE SUBMIT EVENT ON SETTINGS FORM
 const showHide = document.querySelector('.temp')
 const welcomeScreen = document.getElementById('welcome')
@@ -83,6 +88,8 @@ showHide.addEventListener('click', () => {
     createGrid()
 })
 
+//GEM SELECTION
+//////////////////////////////////////////////////////////
 function checkSelectedGems() {
     //Check Which Gems are selected
     const selectedGem1 = document.getElementsByClassName('selected')[0]
@@ -100,27 +107,9 @@ function checkSelectedGems() {
             console.log('invalid gem not found')
         }
     }
-
-
-
     console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair), gemBlockCondition, `Is block number the same as the array length: ${selectedPair.length >= gemBlockCondition}`)
 }
 
-//Moving Gems
-    
-
-
-// function gemMove(selectedPair, selectedGem1, selectedGem2) {
-//     // Step 1
-//     let temp = selectedPair[selectedGem1];
-  
-//     // Step 2
-//     selectedPair[selectedGem1] = selectedPair[selectedGem2];
-  
-//     // Step 3
-//     selectedPair[selectedGem2] = temp;
-//   }
-    
-//   gemMove(selectedPair, selectedGem1, selectedGem2);
-  
+// MOVING GEMS + SMASHING THEM
+//////////////////////////////////////////////////////////      
 //   console.log(selectedPair); 
