@@ -57,6 +57,11 @@ function createGrid() {
         //Write Up How difficult this was to implement due to the E.L applying multiple times,
         //only working on even numbered items in the array (due to firing multiple times)
 
+        let selectedGemID
+        let selectedGemType 
+        let gemBeingReplacedID
+        let gemBeingReplacedType
+        
         gemArray.forEach(gem => gem.addEventListener('dragstart', dragStart))
         gemArray.forEach(gem => gem.addEventListener('dragover', dragOver))
         gemArray.forEach(gem => gem.addEventListener('dragenter', dragEnter))
@@ -70,13 +75,11 @@ function createGrid() {
     }
 
     function dragOver() {
-
         console.log(this.id, 'dragover')
 
     }
 
     function dragEnter() {
-
         console.log(this.id, 'dragenter')
     }
 
@@ -91,7 +94,6 @@ function createGrid() {
     }
 
     function dragDrop() {
-
         console.log(this.id, 'drop')
 
     }
