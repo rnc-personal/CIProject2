@@ -95,7 +95,7 @@ function createGrid() {
 
     function dragDrop() {
         console.log(this.id, 'drop')
-
+        gemBeingReplacedID = parseInt(this.id)
     }
 
 }
