@@ -101,6 +101,9 @@ function createGrid() {
         console.log(this.id, 'drop')
         gemBeingReplacedID = parseInt(this.id)
         gemBeingReplacedType = this.style.backgroundColor
+
+        this.style.backgroundColor = selectedGemType
+        gemArray[gemBeingReplacedID].style.backgroundColor = selectedGemType
     }
 
 }
