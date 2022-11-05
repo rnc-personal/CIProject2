@@ -50,6 +50,9 @@ function createGrid() {
         //Populate Grid with random Gems
         let gemRandomise = Math.floor(Math.random() * gemColors.length)
         gridItem.classList.add(gemColors[gemRandomise])
+        //Added Color as I was unable to find a good way to change the target gems class the dragged gems class
+        //Using the background color property makes it easier to modify when the gem is dragged as it can be set more easily.
+        gridItem.style.backgroundColor = gemColors[gemRandomise]
         grid.appendChild(gridItem)
         gemArray.push(gridItem)
 
@@ -72,6 +75,7 @@ function createGrid() {
     function dragStart() {}
     console.log(this.id, 'dragstart')
     selectedGemID = parseInt(this.id)
+    selectedGemType = this.style.backgroundColor
     }
 
     function dragOver() {
@@ -96,6 +100,7 @@ function createGrid() {
     function dragDrop() {
         console.log(this.id, 'drop')
         gemBeingReplacedID = parseInt(this.id)
+        gemBeingReplacedType = this.style.backgroundColor
     }
 
 }
