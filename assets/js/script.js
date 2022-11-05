@@ -61,7 +61,7 @@ function createGrid() {
         let selectedGemType 
         let gemBeingReplacedID
         let gemBeingReplacedType
-        
+
         gemArray.forEach(gem => gem.addEventListener('dragstart', dragStart))
         gemArray.forEach(gem => gem.addEventListener('dragover', dragOver))
         gemArray.forEach(gem => gem.addEventListener('dragenter', dragEnter))
@@ -71,7 +71,7 @@ function createGrid() {
 
     function dragStart() {}
     console.log(this.id, 'dragstart')
-
+    selectedGemID = parseInt(this.id)
     }
 
     function dragOver() {
