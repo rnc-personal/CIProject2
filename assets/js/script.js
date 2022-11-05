@@ -49,7 +49,7 @@ function createGrid() {
 
         //Populate Grid with random Gems
         let gemRandomise = Math.floor(Math.random() * gemColors.length)
-        gridItem.classList.add(gemColors[gemRandomise])
+        // gridItem.classList.add(gemColors[gemRandomise]) THis enabled iamges via class
         //Added Color as I was unable to find a good way to change the target gems class the dragged gems class
         //Using the background color property makes it easier to modify when the gem is dragged as it can be set more easily.
         gridItem.style.backgroundColor = gemColors[gemRandomise]
