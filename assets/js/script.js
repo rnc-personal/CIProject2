@@ -117,7 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (gemBeingReplacedID && validMove) {
             // squareIdBeingReplaced = null
             console.log(validMove)
-        } 
+        } else if ( gemBeingReplacedID && validMove === false ) {
+            gemArray[gemBeingReplacedID].style.backgroundColor = gemBeingReplacedColor
+            gemArray[selectedGemID].style.backgroundColor = selectedGemColor
+        } else gemArray[selectedGemID].style.backgroundColor = selectedGemColor
     }
 
     function dragDrop() {
