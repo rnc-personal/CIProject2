@@ -110,7 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function dragEnd() {
         console.log(this.id, 'dragend')
+        //Check before the drop if the move will be valid
+        let allowedMoves = [selectedGemID -1 , selectedGemID - gameSize, selectedGemID +1, selectedGemID + gameSize]
+        let validMove = allowedMoves.includes(gemBeingReplacedID)
 
+        if (gemBeingReplacedID && validMove) {
+            // squareIdBeingReplaced = null
+            console.log(validMove)
+        } 
     }
 
     function dragDrop() {
@@ -122,6 +129,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log(this.id, 'drop', gemBeingReplacedColor, selectedGemColor)
     }
-
 
 })
