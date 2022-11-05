@@ -44,7 +44,7 @@ function createGrid() {
         //Setting Up Items in the Grid
         const gridItem = document.createElement('div')
         gridItem.classList.add('grid-item')
-        // gridItem.setAttribute('draggable', true)
+        gridItem.setAttribute('draggable', true)
         gridItem.setAttribute('id', i)
 
         //Populate Grid with random Gems
@@ -57,23 +57,47 @@ function createGrid() {
         //Write Up How difficult this was to implement due to the E.L applying multiple times,
         //only working on even numbered items in the array (due to firing multiple times)
 
-        //Had to define all of the gem items again here to get a Nodelist back (rather than an Array)
-        const allGems = document.querySelectorAll('.grid-item');
+        gemArray.forEach(gem => gem.addEventListener('dragstart', dragStart))
+        gemArray.forEach(gem => gem.addEventListener('dragover', dragOver))
+        gemArray.forEach(gem => gem.addEventListener('dragenter', dragEnter))
+        gemArray.forEach(gem => gem.addEventListener('dragleave', dragLeave))
+        gemArray.forEach(gem => gem.addEventListener('dragend', dragEnd))
+        gemArray.forEach(gem => gem.addEventListener('drop', dragDrop))
 
-        allGems.forEach(gem => {
-            gem.addEventListener('click', function gemSelect(event) {
-                //This is critial to ensure that all items can be selected,
-                //otherwise the click event propagates for all the  remaining items in the nodeList!
-                event.stopImmediatePropagation();
+    function dragStart() {}
+    console.log(this.id, 'dragstart')
 
-                //Highlight Selected Gem
-                this.classList.toggle('selected')
-                selectedPair.push(gem)
-                checkSelectedGems()
-            });
-        });
     }
+
+    function dragOver() {
+
+        console.log(this.id, 'dragover')
+
+    }
+
+    function dragEnter() {
+
+        console.log(this.id, 'dragenter')
+    }
+
+    function dragLeave() {
+        console.log(this.id, 'dragleave')
+
+    }
+
+    function dragEnd() {
+        console.log(this.id, 'dragend')
+
+    }
+
+    function dragDrop() {
+
+        console.log(this.id, 'drop')
+
+    }
+
 }
+
 
 //WELCOME SCREEN
 //////////////////////////////////////////////////////////
@@ -87,29 +111,3 @@ showHide.addEventListener('click', () => {
     welcomeScreen.classList.add('hidden')
     createGrid()
 })
-
-//GEM SELECTION
-//////////////////////////////////////////////////////////
-function checkSelectedGems() {
-    //Check Which Gems are selected
-    const selectedGem1 = document.getElementsByClassName('selected')[0]
-    const selectedGem2 = document.getElementsByClassName('selected')[1]
-    let invalidGem = document.getElementsByClassName('selected')[2]
-
-    //Create a pair for moving and checking for a match
-    //THis needs some thought. If more than 2 items are in the array, remove the last one, take off the selected class and show a message
-    if (parseInt(selectedPair.length) >= parseInt(gemBlockCondition)) {
-        console.log('Select Only 2 Gems!');
-        if (invalidGem) {
-            invalidGem.classList.remove('selected')
-            selectedPair.pop(invalidGem)
-        } else {
-            console.log('invalid gem not found')
-        }
-    }
-    console.log(selectedGem1, selectedGem2, invalidGem, selectedPair.length, typeof(selectedPair), gemBlockCondition, `Is block number the same as the array length: ${selectedPair.length >= gemBlockCondition}`)
-}
-
-// MOVING GEMS + SMASHING THEM
-//////////////////////////////////////////////////////////      
-//   console.log(selectedPair); 
