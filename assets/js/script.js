@@ -61,9 +61,9 @@ function createGrid() {
         //only working on even numbered items in the array (due to firing multiple times)
 
         let selectedGemID
-        let selectedGemType
+        let selectedGemColor
         let gemBeingReplacedID
-        let gemBeingReplacedType
+        let gemBeingReplacedColor
 
         gemArray.forEach(gem => gem.addEventListener('dragstart', dragStart))
         gemArray.forEach(gem => gem.addEventListener('dragover', dragOver))
@@ -75,7 +75,7 @@ function createGrid() {
         function dragStart() {
             console.log(this.id, 'dragstart')
             selectedGemID = parseInt(this.id)
-            selectedGemType = this.style.backgroundColor
+            selectedGemColor = this.style.backgroundColor
         }
 
         function dragOver(e) {
@@ -101,11 +101,17 @@ function createGrid() {
 
         function dragDrop() {
             console.log(this.id, 'drop')
+            colorBeingReplaced = this.style.backgroundColor                             // This is the color being replaced
             gemBeingReplacedID = parseInt(this.id)
-            gemBeingReplacedType = this.style.backgroundColor
+            this.style.backgroundColor = selectedGemColor                               // This is making the gem to be replaced the same color as the dragged one
+            // gemArray[selectedGemID].style.backgroundColor = gemBeingReplacedColor
 
-            this.style.backgroundColor = selectedGemType
-            gemArray[gemBeingReplacedID].style.backgroundColor = selectedGemType
+            // gemBeingReplacedColor = this.style.backgroundColor
+            // gemBeingReplacedID = parseInt(this.id)
+            // gemArray[selectedGemID].style.backgroundColor = gemBeingReplacedColor
+            // this.style.backgroundColor = selectedGemColor
+
+            console.log(gemBeingReplacedColor, selectedGemColor)
         }
 
     }
