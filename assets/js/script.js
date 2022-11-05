@@ -61,7 +61,7 @@ function createGrid() {
         //only working on even numbered items in the array (due to firing multiple times)
 
         let selectedGemID
-        let selectedGemType 
+        let selectedGemType
         let gemBeingReplacedID
         let gemBeingReplacedType
 
@@ -72,45 +72,45 @@ function createGrid() {
         gemArray.forEach(gem => gem.addEventListener('dragend', dragEnd))
         gemArray.forEach(gem => gem.addEventListener('drop', dragDrop))
 
-    function dragStart() {
-    console.log(this.id, 'dragstart')
-    selectedGemID = parseInt(this.id)
-    selectedGemType = this.style.backgroundColor
-    }
+        function dragStart() {
+            console.log(this.id, 'dragstart')
+            selectedGemID = parseInt(this.id)
+            selectedGemType = this.style.backgroundColor
+        }
 
-    function dragOver(e) {
-        e.preventDefault()
-        console.log(this.id, 'dragover')
+        function dragOver(e) {
+            e.preventDefault()
+            console.log(this.id, 'dragover')
 
-    }
+        }
 
-    function dragEnter(e) {
-        e.preventDefault()
-        console.log(this.id, 'dragenter')
-    }
+        function dragEnter(e) {
+            e.preventDefault()
+            console.log(this.id, 'dragenter')
+        }
 
-    function dragLeave() {
-        console.log(this.id, 'dragleave')
+        function dragLeave() {
+            console.log(this.id, 'dragleave')
 
-    }
+        }
 
-    function dragEnd() {
-        console.log(this.id, 'dragend')
+        function dragEnd() {
+            console.log(this.id, 'dragend')
 
-    }
+        }
 
-    function dragDrop() {
-        console.log(this.id, 'drop')
-        gemBeingReplacedID = parseInt(this.id)
-        gemBeingReplacedType = this.style.backgroundColor
+        function dragDrop() {
+            console.log(this.id, 'drop')
+            gemBeingReplacedID = parseInt(this.id)
+            gemBeingReplacedType = this.style.backgroundColor
 
-        this.style.backgroundColor = selectedGemType
-        gemArray[gemBeingReplacedID].style.backgroundColor = selectedGemType
+            this.style.backgroundColor = selectedGemType
+            gemArray[gemBeingReplacedID].style.backgroundColor = selectedGemType
+        }
+
     }
 
 }
-
-
 //WELCOME SCREEN
 //////////////////////////////////////////////////////////
 // TEMP - NEEDS MOVING TO THE SUBMIT EVENT ON SETTINGS FORM
