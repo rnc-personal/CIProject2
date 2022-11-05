@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let validMove = allowedMoves.includes(gemBeingReplacedID)
 
         if (gemBeingReplacedID && validMove) {
-            // squareIdBeingReplaced = null
+            squareIdBeingReplaced = null
             console.log(validMove)
         } else if ( gemBeingReplacedID && validMove === false ) {
             gemArray[gemBeingReplacedID].style.backgroundColor = gemBeingReplacedColor
@@ -133,4 +133,25 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(this.id, 'drop', gemBeingReplacedColor, selectedGemColor)
     }
 
+    function gemFill() {
+        // Replacement Gems when a match is made
+    }
+
+    function matchFourRow() {
+        // Check Rows for a match of Four
+    }
+
+    function matchFourCol() {
+        // Check columns for a match of Four
+    }
+
+    // Checking For three has to be done after Four for the scoring to work correctly.
+    // Player should always get the highest match available
+    function matchThreeRow() {
+        // Check Rows for a match of Four
+    }
+
+    function matchThreeCol() {
+        // Check columns for a match of Four
+    }
 })
