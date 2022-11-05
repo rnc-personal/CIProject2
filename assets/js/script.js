@@ -78,12 +78,14 @@ function createGrid() {
     selectedGemType = this.style.backgroundColor
     }
 
-    function dragOver() {
+    function dragOver(e) {
+        e.preventDefault()
         console.log(this.id, 'dragover')
 
     }
 
-    function dragEnter() {
+    function dragEnter(e) {
+        e.preventDefault()
         console.log(this.id, 'dragenter')
     }
 
