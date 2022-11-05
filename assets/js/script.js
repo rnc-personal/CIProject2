@@ -72,7 +72,7 @@ function createGrid() {
         gemArray.forEach(gem => gem.addEventListener('dragend', dragEnd))
         gemArray.forEach(gem => gem.addEventListener('drop', dragDrop))
 
-    function dragStart() {}
+    function dragStart() {
     console.log(this.id, 'dragstart')
     selectedGemID = parseInt(this.id)
     selectedGemType = this.style.backgroundColor
