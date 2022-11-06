@@ -1,48 +1,49 @@
+// document.body.addEventListener('DOMContentnLoaded', () => {
+    //////////////////////////////////////////////////////////
+    // GAME SETTINGS AND GLOBAL VARAIBLES
 
-//////////////////////////////////////////////////////////
-// GAME SETTINGS AND GLOBAL VARAIBLES
+    //defining settings form
+    // // this will be the value from the options selcted - general game settings
+    let sizeSettingForm = document.getElementById('settings-form-size')
+    let gameSize = parseInt(sizeSettingForm.value)
 
-//defining settings form
-// // this will be the value from the options selcted - general game settings
-let sizeSettingForm = document.getElementById('settings-form-size')
-let gameSize = parseInt(sizeSettingForm.value)
+    sizeSettingForm.addEventListener('change', gameSelected)
 
-sizeSettingForm.addEventListener('change', gameSelected)
-function gameSelected() {
-    gameSize = parseInt(sizeSettingForm.value)
-    console.log(gameSize)
-    console.log('change')
-    return gameSize
-}
+    function gameSelected() {
+        gameSize = parseInt(sizeSettingForm.value)
+        console.log(gameSize)
+        console.log('change')
+        return gameSize
+    }
 
-console.log(gameSize);
-//Basic Game Area variables
-const grid = document.getElementById('game-grid')
-const gemArray = []
+    console.log(gameSize);
+    //Basic Game Area variables
+    const grid = document.getElementById('game-grid')
+    const gemArray = []
 
 
-//The gems appearance can change but for referring to them, generic colors from the gems theme are used
-// define what the other themes gems relate to (e.g 'Santa' = 'Blue)
+    //The gems appearance can change but for referring to them, generic colors from the gems theme are used
+    // define what the other themes gems relate to (e.g 'Santa' = 'Blue)
 
-const gemColors = [
-    'red',
-    'green',
-    'blue',
-    'yellow'
-]
+    const gemColors = [
+        'red',
+        'green',
+        'blue',
+        'yellow'
+    ]
 
-//////////////////////////////////////////////////////////
-//WELCOME SCREEN
-//////////////////////////////////////////////////////////
-// TEMP - NEEDS MOVING TO THE SUBMIT EVENT ON SETTINGS FORM
-const userStart = document.querySelector('.start-game')
-const welcomeScreen = document.getElementById('welcome')
+    //////////////////////////////////////////////////////////
+    //WELCOME SCREEN
+    //////////////////////////////////////////////////////////
+    // TEMP - NEEDS MOVING TO THE SUBMIT EVENT ON SETTINGS FORM
+    const userStart = document.querySelector('.start-game')
+    const welcomeScreen = document.getElementById('welcome')
 
-userStart.addEventListener('click', () => {
-    welcomeScreen.classList.remove('open')
-    welcomeScreen.classList.add('hidden')
-})
-
+    userStart.addEventListener('click', () => {
+        welcomeScreen.classList.remove('open')
+        welcomeScreen.classList.add('hidden')
+    })
+// })
 // need to attach this to the form submission, NOT the show/hide game button!
 /**
  * Creates the grid area and gems dynamically when starting the game, based on the settings chosen.
