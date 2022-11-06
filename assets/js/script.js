@@ -2,16 +2,25 @@ document.addEventListener('DOMContentLoaded', () => {
     //////////////////////////////////////////////////////////
     // GAME SETTINGS AND GLOBAL VARAIBLES
 
-    // let sizeSetting = document.getElementById('settings-form').options
-    // let gameSize = document.getElementById('settings-form').options.selectedIndex
+    //defining settings form
+    let sizeSettingForm = document.getElementById('settings-form-size')
+    let gameSizeSetting = sizeSettingForm.value
+    sizeSettingForm.addEventListener('change', gameSelected)
+    
 
     // this will be the value from the options selcted - general game settings
-    const gameSize = 4
+    let gameSize
+    function gameSelected() {
+        gameSize = gameSizeSetting
+        console.log(gameSizeSetting, gameSize)
+    }
+
+
+    //Basic Game Area variables
     const grid = document.getElementById('game-grid')
     const gemArray = []
 
-    let selectedPair = []
-    let gemBlockCondition = 3
+
     //The gems appearance can change but for referring to them, generic colors from the gems theme are used
     // define what the other themes gems relate to (e.g 'Santa' = 'Blue)
 
@@ -40,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * Randomly selects a color from the gems available and applies an ID to the element
      */
 
-    function createGrid() {
+    function createGrid(gameSize) {
         for (let i = 0; i < gameSize * gameSize; i++) {
             //Checking Settings to know how large the grid should be
             if (gameSize === 4) {
@@ -135,6 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function gemFill() {
         // Replacement Gems when a match is made
+    }
+
+    // Five Rows and Columns are possible in harder games
+    function matchFiveRow() {
+        // Check Rows for a match of Five
+    }
+
+    function matchFiveCol() {
+        // Check columns for a match of Five
     }
 
     function matchFourRow() {
